@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
-{
+public class GameManager : MonoBehaviour{
+
+    //オブジェクト参照
+    public GameObject osyou;        //和尚
+    public GameObject textScore;    //テキストスコア
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +17,13 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    //オーブ取得
+    public void TouchOrb (){
+        if (Input.GetMouseButton (0) == false) {
+            return;
+        }
+             
     }
 }
