@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour{
         
     }
 
-    //オーブ取得
+    //和尚をクリック
     public void TouchOrb (){
         if (Input.GetMouseButton (0) == false) {
             return;
