@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour{
     }
 
     //和尚をクリック
-    public void TouchOrb (){
+    public void TouchOshou (){
         if (Input.GetMouseButton (0) == false) {
             return;
         }
