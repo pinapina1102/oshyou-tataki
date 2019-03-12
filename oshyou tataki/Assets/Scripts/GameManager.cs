@@ -22,8 +22,8 @@ public class GameManager : MonoBehaviour{
         
     }
 
-    //和尚をクリック
-    public void TouchOrb (){
+    //和尚を取得
+    public void TouchOshou (){
         if (Input.GetMouseButton (0) == false) {
             return;
         }
