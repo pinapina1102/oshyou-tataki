@@ -8,10 +8,9 @@ public class GameManager : MonoBehaviour
     private const int LIMIT_TIME = 30;  //制限時間
 
     //オブジェクト参照
-    public GameObject Bonz;        //和尚
-    public GameObject textScore;   //テキストスコア
-    public GameObject imageBonz;  //和尚のアニメーション
-    public GameObject imageSmoke; //
+    //public GameObject textScore;   //テキストスコア
+    public GameObject[] imageBonz =　new GameObject[9];  //和尚のアニメーション
+    //public GameObject imageSmoke; //
 
     //メンバ変数
     //private int score = 0;
@@ -27,6 +26,7 @@ public class GameManager : MonoBehaviour
 
     }
 
+
     //和尚をクリック
     public void TouchBonz()
     {
@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
 
         Destroy(this.gameObject);
 
-        //和尚アニメ再生
+       //和尚アニメ再生
         AnimatorStateInfo stateInfo =
             imageBonz.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0);
         if (stateInfo.fullPathHash ==
@@ -50,6 +50,8 @@ public class GameManager : MonoBehaviour
         {
             imageBonz.GetComponent<Animator>().SetTrigger("isGetScore");
         }
-    }
+        
+         
+    } 
 }
 
