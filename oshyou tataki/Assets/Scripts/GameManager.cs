@@ -7,6 +7,9 @@ public class GameManager : MonoBehaviour{
     //オブジェクト参照
     public GameObject osyou;        //和尚
     public GameObject textScore;    //テキストスコア
+
+    //メンバ変数
+    private int score = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +27,6 @@ public class GameManager : MonoBehaviour{
         if (Input.GetMouseButton (0) == false) {
             return;
         }
-             
+        Destroy(this.gameObject);
     }
 }
