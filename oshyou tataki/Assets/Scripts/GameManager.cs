@@ -2,22 +2,36 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using UnityEngine.UI;
+
 public class GameManager : MonoBehaviour
 {
     //定数定義
-    private const int LIMIT_TIME = 30;  //制限時間
+    private const int LIMIT_TIME = 30;  //制限時
+    private const int MAX_BONZ = 9; //和尚の最大出現数
 
     //オブジェクト参照
-    //public GameObject textScore;   //テキストスコア
-    public GameObject[] imageBonz =　new GameObject[9];  //和尚のアニメーション
+    public GameObject bonzPrefab;
+    public GameObject canvasGame;
+    public GameObject textScore;   //スコアテキスト
+
+    //public GameObject[] imageBonz =　new GameObject[9];  //和尚のアニメーション
     //public GameObject imageSmoke; //
+    //public GameObject Bonz;
 
     //メンバ変数
-    //private int score = 0;
+    private int score = 0;  //現在のスコア
+
+
     // Start is called before the first frame update
     void Start()
     {
-
+        //和尚生成
+        for(int i=0; i<MAX_BONZ; i++)
+        {
+            CreateBonz();
+        }
+        RefreshScoreText();
     }
 
     // Update is called once per frame
@@ -26,32 +40,45 @@ public class GameManager : MonoBehaviour
 
     }
 
-
-    //和尚をクリック
-    public void TouchBonz()
+    //和尚生成
+    public void CreateBonz()
     {
-        if (Input.GetMouseButton(0) == false)
-        {
-            return;
-        }
+        GameObject bonz = (GameObject)Instantiate(bonzPrefab);
+        bonz.transform.SetParent(canvasGame.transform, false);
+        bonz.transform.localPosition = new Vector3(
+           UnityEngine.Random.Range(-300.0f, 300.0f),
+           UnityEngine.Random.Range(250.0f, -500.0f),
+           0f);
+    }
 
-        Destroy(this.gameObject);
+    //和尚入手
+    public void GetBonz()
+    {
+        score += 1;
+        RefreshScoreText();
+    }
 
-       //和尚アニメ再生
+    //スコアテキスト更新
+    void RefreshScoreText()
+    {
+        textScore.GetComponent<Text>().text =
+            "得点：" + score;
+    }
+
+      /*  //和尚アニメ再生
         AnimatorStateInfo stateInfo =
-            imageBonz.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0);
+            Bonz.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0);
         if (stateInfo.fullPathHash ==
                 Animator.StringToHash("Base Layer.float@Bonz"))
         {
             //すでに再生中なら先頭から
-            imageBonz.GetComponent<Animator>().Play(stateInfo.fullPathHash, 0, 0.0f);
+            Bonz.GetComponent<Animator>().Play(stateInfo.fullPathHash, 0, 0.0f);
         }
         else
         {
-            imageBonz.GetComponent<Animator>().SetTrigger("isGetScore");
+            Bonz.GetComponent<Animator>().SetTrigger("isGetScore");
         }
-        
-         
-    } 
+    }
+    */
 }
 
