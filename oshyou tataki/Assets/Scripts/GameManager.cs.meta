@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 1171822f801839648983d16a06983b94
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - Bonz: {fileID: 3484482950257846119, guid: 14adb350d894fb84f8395285dd6a89cb, type: 3}
+  - textScore: {instanceID: 0}
+  - imageBonz: {fileID: 3484482950257846119, guid: 14adb350d894fb84f8395285dd6a89cb,
+      type: 3}
+  - imageSmoke: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
