@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using UnityEngine.UI;
+using System;
 
 public class GameManager : MonoBehaviour
 {
     //定数定義
-    private const int LIMIT_TIME = 30;  //制限時
-    private const int MAX_BONZ = 9; //和尚の最大出現数
+    private const int MAX_BONZ = 9;
+    private const int LIMIT_TIME = 30;  //制限時間
+    private const int RESPAWN_TIME = 8; //発生する秒数
 
     //オブジェクト参照
     public GameObject bonzPrefab;
@@ -21,23 +23,51 @@ public class GameManager : MonoBehaviour
 
     //メンバ変数
     private int score = 0;  //現在のスコア
+    private int currentBonz = 0; //現在の和尚数
+    private DateTime lastDateTime; //前回和尚を生成した時間
 
 
     // Start is called before the first frame update
     void Start()
     {
+        currentBonz = 9;
         //和尚生成
-        for(int i=0; i<MAX_BONZ; i++)
+        for(int i=0; i<currentBonz; i++)
         {
             CreateBonz();
         }
+
+        //初期設定
+        lastDateTime = DateTime.UtcNow;
+
         RefreshScoreText();
     }
 
     // Update is called once per frame
     void Update()
     {
+       if(currentBonz < MAX_BONZ){
+            TimeSpan timeSpan = DateTime.UtcNow - lastDateTime;
 
+            if (timeSpan >= TimeSpan.FromSeconds (RESPAWN_TIME)){
+                while (timeSpan >= TimeSpan.FromSeconds(RESPAWN_TIME)){
+                    CreateNewBonz();
+                    timeSpan -= TimeSpan.FromSeconds(RESPAWN_TIME);
+                }
+            }
+        }
+    }
+
+    //新しい和尚の生成
+    public void CreateNewBonz()
+    {
+        lastDateTime = DateTime.UtcNow;
+        if(currentBonz >= MAX_BONZ)
+        {
+            return;
+        }
+        CreateBonz();
+        currentBonz++;
     }
 
     //和尚生成
@@ -56,6 +86,7 @@ public class GameManager : MonoBehaviour
     {
         score += 1;
         RefreshScoreText();
+        currentBonz--;
     }
 
     //スコアテキスト更新
