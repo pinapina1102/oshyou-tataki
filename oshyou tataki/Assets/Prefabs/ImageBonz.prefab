@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7704336108550679086}
   - component: {fileID: 5673629356557782685}
   - component: {fileID: 706509971384476307}
+  - component: {fileID: 4393845024910493752}
   m_Layer: 5
   m_Name: ImageBonz
   m_TagString: Untagged
@@ -158,3 +159,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e3dfdbedd294e44ea84c0806ccfea1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &4393845024910493752
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1534212647763416221}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3ea55d5ce6aaa7d4ca933b084acb8fce, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

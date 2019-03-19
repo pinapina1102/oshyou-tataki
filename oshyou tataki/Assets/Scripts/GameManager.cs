@@ -16,8 +16,8 @@ public class GameManager : MonoBehaviour
     public GameObject bonzPrefab;
     public GameObject canvasGame;
     public GameObject textScore;   //スコアテキスト
+    public GameObject ImageBonz;
 
-    //public GameObject[] imageBonz =　new GameObject[9];  //和尚のアニメーション
     //public GameObject imageSmoke; //
     //public GameObject Bonz;
 
@@ -96,20 +96,20 @@ public class GameManager : MonoBehaviour
             "得点：" + score;
     }
 
-      /*  //和尚アニメ再生
-        AnimatorStateInfo stateInfo =
-            Bonz.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0);
+    //
+     //和尚アニメ再生
+    /*    AnimatorStateInfo stateInfo =
+            ImageBonz.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0);
         if (stateInfo.fullPathHash ==
                 Animator.StringToHash("Base Layer.float@Bonz"))
         {
             //すでに再生中なら先頭から
-            Bonz.GetComponent<Animator>().Play(stateInfo.fullPathHash, 0, 0.0f);
+            ImageBonz.GetComponent<Animator>().Play(stateInfo.fullPathHash, 0, 0.0f);
         }
         else
         {
-            Bonz.GetComponent<Animator>().SetTrigger("isGetScore");
+            ImageBonz.GetComponent<Animator>().SetTrigger("isGetScore");
         }
-    }
     */
 }
 
