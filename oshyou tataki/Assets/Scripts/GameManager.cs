@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     //定数定義
     private const int MAX_BONZ = 9;
     private const int LIMIT_TIME = 30;  //制限時間
-    private const int RESPAWN_TIME = 8; //発生する秒数
+    private const double RESPAWN_TIME = 0.5; //発生する秒数
 
     //オブジェクト参照
     public GameObject bonzPrefab;
@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currentBonz = 9;
+        currentBonz = 1;
         //和尚生成
         for(int i=0; i<currentBonz; i++)
         {
@@ -97,7 +97,7 @@ public class GameManager : MonoBehaviour
     }
 
     //
-     //和尚アニメ再生
+    //和尚アニメ再生
     /*    AnimatorStateInfo stateInfo =
             ImageBonz.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0);
         if (stateInfo.fullPathHash ==
@@ -111,5 +111,7 @@ public class GameManager : MonoBehaviour
             ImageBonz.GetComponent<Animator>().SetTrigger("isGetScore");
         }
     */
+
+
 }
 
