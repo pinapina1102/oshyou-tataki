@@ -1,14 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class BonzManager : MonoBehaviour
 {
-    public LayerMask blockLayer;
-
     private Rigidbody2D rbody;  //制御用Rigidbody2D
 
-    private float moveSpeed = 1;    //移動速度
+    public float moveSpeed;    //移動速度
+
+    public float stoptime = 1f;
+
+    public float deltime = 2f;
+
+    float time = 0f;
+
 
     //オブジェクト参照
     private GameObject gameManager; //ゲームマネージャー
@@ -16,16 +22,27 @@ public class BonzManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        time = 0;
         gameManager = GameObject.Find("GameManager");
         rbody = GetComponent<Rigidbody2D>();
+        rbody.velocity = transform.up * 1;
+
     }
 
-    // Update is called once per frame
     void Update()
     {
+        time += Time.deltaTime;
+        print(time);
+        if (time > stoptime)
+        {
+        rbody.velocity = Vector2.zero;
+        }
+        if (time > deltime)
+        {
+            Destroy(this.gameObject);
+        }
 
     }
-
     //和尚をクリックして取得
     public void TouchBonz()
     {
@@ -38,17 +55,9 @@ public class BonzManager : MonoBehaviour
         Destroy(this.gameObject);
     }
 
-    private void FixedUpdate()
+    void AppendBonz()
     {
-        bool isBlock;
 
-        rbody.velocity = new Vector2(moveSpeed, rbody.velocity.y);
-        transform.localScale = new Vector2(-1, 1);
-
-        isBlock = Physics2D.Linecast(
-            new Vector2(transform.position.x, transform.position.y + 0.5f),
-            new Vector2(transform.position.x + 0.3f, transform.position.y + 0.5f),
-            blockLayer);
-
-    }
+    } 
 }
+
