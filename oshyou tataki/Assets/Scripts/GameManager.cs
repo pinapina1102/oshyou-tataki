@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
     private int score = 0;  //現在のスコア
     private int currentBonz = 0; //現在の和尚数
     private DateTime lastDateTime; //前回和尚を生成した時間
+    private Vector2[] pointer;
 
 
     // Start is called before the first frame update
@@ -75,10 +76,10 @@ public class GameManager : MonoBehaviour
     {
         GameObject bonz = (GameObject)Instantiate(bonzPrefab);
         bonz.transform.SetParent(canvasGame.transform, false);
-        bonz.transform.localPosition = new Vector3(
+        bonz.transform.localPosition = new Vector2(
            UnityEngine.Random.Range(-300.0f, 300.0f),
-           UnityEngine.Random.Range(250.0f, -500.0f),
-           0f);
+           UnityEngine.Random.Range(250.0f, -500.0f));
+         
     }
 
     //和尚入手
@@ -111,6 +112,8 @@ public class GameManager : MonoBehaviour
             ImageBonz.GetComponent<Animator>().SetTrigger("isGetScore");
         }
     */
+
+    
 
 
 }
