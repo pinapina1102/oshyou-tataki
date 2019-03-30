@@ -4,7 +4,7 @@ using UnityEngine;
 
 using UnityEngine.SceneManagement;
 
-public class TitleManager : MonoBehaviour {
+public class ResultManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
@@ -18,6 +18,6 @@ public class TitleManager : MonoBehaviour {
 
 	//スタートボタンを押した
 	public void PushStartButton () {
-		SceneManager.LoadScene ("BonzScene");	//To BonzScene
+		SceneManager.LoadScene ("TitleScene");	//ステージ選択シーンへ
 	}
 }
