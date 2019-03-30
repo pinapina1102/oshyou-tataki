@@ -10,16 +10,15 @@ public class GameManager : MonoBehaviour
     //定数定義
     private const int MAX_BONZ = 9;
     private const int LIMIT_TIME = 30;  //制限時間
-    private const double RESPAWN_TIME = 0.5; //発生する秒数
+    private const double RESPAWN_TIME = 0.2; //発生する秒数
+    private List<Vector2> bonzposition = new List<Vector2>(); //Listの定義
+
 
     //オブジェクト参照
     public GameObject bonzPrefab;
     public GameObject canvasGame;
     public GameObject textScore;   //スコアテキスト
     public GameObject ImageBonz;
-
-    //public GameObject imageSmoke; //
-    //public GameObject Bonz;
 
     //メンバ変数
     private int score = 0;  //現在のスコア
@@ -73,12 +72,49 @@ public class GameManager : MonoBehaviour
     //和尚生成
     public void CreateBonz()
     {
+        int place = UnityEngine.Random.Range(0, 9);
         GameObject bonz = (GameObject)Instantiate(bonzPrefab);
         bonz.transform.SetParent(canvasGame.transform, false);
-        bonz.transform.localPosition = new Vector3(
-           UnityEngine.Random.Range(-300.0f, 300.0f),
-           UnityEngine.Random.Range(250.0f, -500.0f),
-           0f);
+
+        switch (place) {
+            case 0 : bonz.transform.localPosition = new Vector3
+                (-220,  50, 0);
+                break;
+            case 1 : bonz.transform.localPosition = new Vector3
+                (   0,  50, 0);
+                break;
+            case 2 : bonz.transform.localPosition = new Vector3
+                ( 220,  50, 0);
+                break;
+            case 3:
+                bonz.transform.localPosition = new Vector3
+                (-220, -130, 0);
+                break;
+            case 4:
+                bonz.transform.localPosition = new Vector3
+                (   0, -130, 0);
+                break;
+            case 5:
+                bonz.transform.localPosition = new Vector3
+                ( 220, -120, 0);
+                break;
+            case 6:
+                bonz.transform.localPosition = new Vector3
+                (-220, -310, 0);
+                break;
+            case 7:
+                bonz.transform.localPosition = new Vector3
+                (   0, -310, 0);
+                break;
+            case 8:
+                bonz.transform.localPosition = new Vector3
+                ( 220, -310, 0);
+                break;
+        }
+        //重ね順を木魚より後ろに設定
+       // bonz.transform.SetSiblingIndex(2);
+
+        //bonz.transform.localPosition = new Vector2(0, 0);
     }
 
     //和尚入手
@@ -95,23 +131,6 @@ public class GameManager : MonoBehaviour
         textScore.GetComponent<Text>().text =
             "得点：" + score;
     }
-
-    //
-    //和尚アニメ再生
-    /*    AnimatorStateInfo stateInfo =
-            ImageBonz.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0);
-        if (stateInfo.fullPathHash ==
-                Animator.StringToHash("Base Layer.float@Bonz"))
-        {
-            //すでに再生中なら先頭から
-            ImageBonz.GetComponent<Animator>().Play(stateInfo.fullPathHash, 0, 0.0f);
-        }
-        else
-        {
-            ImageBonz.GetComponent<Animator>().SetTrigger("isGetScore");
-        }
-    */
-
 
 
 }
