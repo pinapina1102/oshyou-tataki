@@ -111,10 +111,6 @@ public class GameManager : MonoBehaviour
                 ( 220, -310, 0);
                 break;
         }
-        //重ね順を木魚より後ろに設定
-       // bonz.transform.SetSiblingIndex(2);
-
-        //bonz.transform.localPosition = new Vector2(0, 0);
     }
 
     //和尚入手
