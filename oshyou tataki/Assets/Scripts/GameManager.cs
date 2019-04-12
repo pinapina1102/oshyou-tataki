@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
     private int score = 0;  //現在のスコア
     private int currentBonz = 0; //現在の和尚数
     private DateTime lastDateTime; //前回和尚を生成した時間
-
+    private Vector2[] position = new Vector2[9]; //シャッフルする配列
 
     // Start is called before the first frame update
     void Start()
@@ -56,6 +56,9 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+
+    //
+
 
     //新しい和尚の生成
     public void CreateNewBonz()
@@ -127,7 +130,6 @@ public class GameManager : MonoBehaviour
         textScore.GetComponent<Text>().text =
             "得点：" + score;
     }
-
 
 }
 
