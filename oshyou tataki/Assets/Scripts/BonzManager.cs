@@ -7,11 +7,9 @@ public class BonzManager : MonoBehaviour
 {
     private Rigidbody2D rbody;  //制御用Rigidbody2D
 
-    public float moveSpeed;    //移動速度
+    public float stoptime;      //停止までの時間
 
-    public float stoptime = 1f;
-
-    public float deltime = 2f;
+    public float deltime;       //消えるまでの秒数
 
     float time = 0f;
 
@@ -31,8 +29,9 @@ public class BonzManager : MonoBehaviour
 
     void Update()
     {
-        time += Time.deltaTime;
-        print(time);
+
+        time += Time.deltaTime;  //和尚が動いた後に消える
+
         if (time > stoptime)
         {
         rbody.velocity = Vector2.zero;
@@ -55,9 +54,5 @@ public class BonzManager : MonoBehaviour
         Destroy(this.gameObject);
     }
 
-    void AppendBonz()
-    {
-
-    } 
 }
 
