@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System;
 
 public class GameManager : MonoBehaviour
@@ -19,6 +20,7 @@ public class GameManager : MonoBehaviour
     public GameObject canvasGame;
     public GameObject textScore;   //スコアテキスト
     public GameObject ImageBonz;
+    public GameObject LimitTimeText;
 
     //メンバ変数
     private int score = 0;  //現在のスコア
@@ -55,6 +57,12 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
+
+        if (LimitTimeText == "0")
+        {
+
+        }
+       
     }
 
     //
@@ -130,6 +138,15 @@ public class GameManager : MonoBehaviour
         textScore.GetComponent<Text>().text =
             "得点：" + score;
     }
+        
+    void Bonz() {
 
+        Invoke("", 5f);
+    }
+
+    void GoResult()
+    {
+        SceneManager.LoadScene("ResultScene");
+    }
 }
 
