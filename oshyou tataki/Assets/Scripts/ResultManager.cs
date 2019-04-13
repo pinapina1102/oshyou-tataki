@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ResultManager : MonoBehaviour
+public class ResultScene : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
     {
-       //jiijijij
+        
     }
 
     // Update is called once per frame
