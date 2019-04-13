@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-using UnityEngine.UI;
-using UnityEditor.SceneManagement;
+using UnityEngine.SceneManagement;
 
 public class ResultManager : MonoBehaviour
 {
@@ -16,13 +15,16 @@ public class ResultManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //ボタンを押したら0.1秒後タイトルへ
-        Invoke("GoBackTitleScene", 0.1f);
+        /*if ("ButtonBack" == )
+        {
+            //ボタンを押したら0.1秒後タイトルへ
+            Invoke("GoBackTitle", 0.1f);
+        }*/
     }
 
-    //ステージシーンに戻る
-    void GoBackTitleScene(){
-        EditorSceneManager.LoadScene("TitleManager");
+    //タイトルシーンに戻る
+    public void GoBackTitle(){
+        SceneManager.LoadScene("TitleScene");
     }
 
 }
