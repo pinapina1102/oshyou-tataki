@@ -56,17 +56,8 @@ public class GameManager : MonoBehaviour
                     timeSpan -= TimeSpan.FromSeconds(RESPAWN_TIME);
                 }
             }
-        }
-
-        if (LimitTimeText == "0")
-        {
-
-        }
-       
+        }      
     }
-
-    //
-
 
     //新しい和尚の生成
     public void CreateNewBonz()
