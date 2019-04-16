@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BonzScene.unity
     guid: e35fcf5af036e2e4ab2713a75c428376
+  - enabled: 1
+    path: Assets/Scenes/ResultScene.unity
+    guid: cf58b3dd7c5035a4e982dc2ecee05710
   m_configObjects: {}
