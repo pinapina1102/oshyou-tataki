@@ -27,6 +27,11 @@ public class ResultManager : MonoBehaviour
     
     }
 
+    public void HighScoreReset()
+    {
+        PlayerPrefs.DeleteAll();
+    }
+
     //タイトルシーンに戻る
     public void GoBackTitle(){
         SceneManager.LoadScene("TitleScene");

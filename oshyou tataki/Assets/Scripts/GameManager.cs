@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
     public GameObject canvasGame;
     public GameObject textScore;   //スコアテキスト
     public GameObject ImageBonz;
-    public GameObject LimitTimeText;
+    float LimitTime = 10.0f;
 
     //メンバ変数
     private int score = 0;  //現在のスコア
@@ -71,13 +71,17 @@ public class GameManager : MonoBehaviour
     //新しい和尚の生成
     public void CreateNewBonz()
     {
-        lastDateTime = DateTime.UtcNow;
-        if(currentBonz >= MAX_BONZ)
+        this.LimitTime -= Time.deltaTime;
+        if (this.LimitTime < 0)
         {
-            return;
+            lastDateTime = DateTime.UtcNow;
+            if (currentBonz >= MAX_BONZ)
+            {
+                return;
+            }
+            CreateBonz();
+            currentBonz++;
         }
-        CreateBonz();
-        currentBonz++;
     }
 
     //和尚生成
@@ -138,5 +142,6 @@ public class GameManager : MonoBehaviour
         textScore.GetComponent<Text>().text =
             "得点：" + score;
     }
+
 }
 
