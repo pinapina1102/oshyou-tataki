@@ -26,8 +26,8 @@ public class LimitTime : MonoBehaviour
         if(this.time < 0)
         {
             this.limitTimeUI.GetComponent<Text>().text = "オワオワリでぇ～す";
-            Invoke("GoBackTitle",1.0f);
-
+            Invoke("GoBackResult",1.0f);
+            Application.Quit();
         }
         else
         {
@@ -36,8 +36,8 @@ public class LimitTime : MonoBehaviour
         }
     }
 
-    void GoBackTitle()
+    void GoBackResult()
     {
-        SceneManager.LoadScene("TitleScene");
+        SceneManager.LoadScene("ResultScene");
     }
 }

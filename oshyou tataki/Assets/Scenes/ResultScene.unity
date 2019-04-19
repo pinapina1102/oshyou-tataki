@@ -509,7 +509,7 @@ GameObject:
   - component: {fileID: 314784162}
   - component: {fileID: 314784161}
   m_Layer: 5
-  m_Name: HighScoreText
+  m_Name: HighScoreLabel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -685,6 +685,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c876e30752642d649a1e5cd1eb7fb439, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  highScoreLabel: {fileID: 314784161}
+  scoreLabel: {fileID: 1759793247}
 --- !u!1 &1298165557
 GameObject:
   m_ObjectHideFlags: 0
@@ -858,7 +860,7 @@ GameObject:
   - component: {fileID: 1759793248}
   - component: {fileID: 1759793247}
   m_Layer: 5
-  m_Name: ScoreText
+  m_Name: ScoreLabel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

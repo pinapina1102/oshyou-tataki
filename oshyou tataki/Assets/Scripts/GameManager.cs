@@ -56,7 +56,16 @@ public class GameManager : MonoBehaviour
                     timeSpan -= TimeSpan.FromSeconds(RESPAWN_TIME);
                 }
             }
-        }      
+        }   
+       
+       //ハイスコアを更新
+       if(PlayerPrefs.GetInt("HighScore") < score)
+        {
+            PlayerPrefs.SetInt("HighScore", score);
+        }
+
+       //スコアを表示
+        PlayerPrefs.SetInt("Score", score);
     }
 
     //新しい和尚の生成
@@ -128,16 +137,6 @@ public class GameManager : MonoBehaviour
     {
         textScore.GetComponent<Text>().text =
             "得点：" + score;
-    }
-        
-    void Bonz() {
-
-        Invoke("", 5f);
-    }
-
-    void GoResult()
-    {
-        SceneManager.LoadScene("ResultScene");
     }
 }
 
