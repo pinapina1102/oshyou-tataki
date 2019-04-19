@@ -26,7 +26,8 @@ public class LimitTime : MonoBehaviour
         if(this.time < 0)
         {
             this.limitTimeUI.GetComponent<Text>().text = "オワオワリでぇ～す";
-            Invoke("GoBackTitle",3.0f);
+            Invoke("GoBackTitle",1.0f);
+
         }
         else
         {
